@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Menu, ImgBack, ViewCont, ViewMenu, ViewRow } from './styles'
 import { StatusBar } from 'expo-status-bar';
 import IconComp from '../../components/Icon';
@@ -28,12 +28,18 @@ import iconBio from '../../assets/bio.png';
 import iconCovid from '../../assets/covid.png';
 import iconHabbitus from '../../assets/habbitus.png';
 import iconUro from '../../assets/uro.png';
+import ModalCustom from '../../components/modal';
+
 
 export default function Home() {
+  const [visible, setVisible] = useState(false);
+  const [idVideo, setIdVideo] = useState('');
+
   return (
     <>
       <StatusBar style="light" />
       <ImgBack source={require('../../assets/wallpaper.png')}>
+        <ModalCustom visible={visible} onClose={() => setVisible(false)} idVideo={idVideo} />
         <ViewCont>
           <ViewRow>
             <IconComp nameIcon={iconBooks} title={"Books"} />
@@ -60,8 +66,13 @@ export default function Home() {
             <IconComp nameIcon={iconLibras} title={"Libras"} />
           </ViewRow>
           <ViewRow>
-            <IconComp nameIcon={iconConVacinas} title={"Vacinas"} />
-            <IconComp nameIcon={iconMedi} title={"Medamigo"} />
+            <IconComp nameIcon={iconConVacinas} title={"Vacinas"}
+              onPress={() => {
+                setVisible(true); setIdVideo('3PkboxK_b90')
+              }} />
+            <IconComp nameIcon={iconMedi} title={"Medamigo"} onPress={() => {
+              setVisible(true); setIdVideo('3A7wTRThLuE')
+            }} />
             <IconComp nameIcon={iconBio} title={"Bioquimica"} />
             <IconComp nameIcon={iconCovid} title={"Covid"} />
           </ViewRow>

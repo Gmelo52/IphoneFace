@@ -18,7 +18,7 @@ export const ViewRow = styled.View`
   padding-right:8%
   align-items:center;
   justify-content:center;
-  margin-bottom:3%;
+  margin-bottom:6%;
 `;
 
 export const ViewMenu = styled.View`
@@ -32,8 +32,9 @@ export const Menu = styled.View`
   background-color:rgba(255,255,255,0.5);
   border-radius:20px;
   justify-content:flex-end;
-  padding-bottom:15px ;
+  padding-right:6%;
+  padding-left:5%;
   width: 100%;
-  height: 45%;
+  height: 50%;
   margin-bottom:3%;
 `;
